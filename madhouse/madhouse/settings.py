@@ -26,6 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'main.apps.MainConfig',
+
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +88,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LANGUAGE_CODE = 'ru-RU'
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'RU'
+PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
 
 LANGUAGE_CODE = 'ru-RU'
 

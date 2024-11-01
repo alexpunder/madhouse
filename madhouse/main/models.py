@@ -1,3 +1,100 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
-# Create your models here.
+
+class SignUp(models.Model):
+    created_at = models.DateTimeField(
+        'Дата/время создания',
+        auto_now_add=True,
+    )
+    name = models.CharField(
+        'Имя пользователя',
+        max_length=255,
+    )
+    phone_number = PhoneNumberField(
+        'Телефон пользователя',
+    )
+    message = models.TextField(
+        'Сообщение',
+    )
+
+    class Meta:
+        ordering = ['-id',]
+        verbose_name = 'Обращения'
+        verbose_name_plural = 'Обращения'
+
+    def __str__(self):
+        return f'Заявка от {self.name}'
+
+
+class MainData(models.Model):
+    title = models.CharField(
+        'Нзвание организации',
+        max_length=255,
+    )
+    about_us = models.TextField(
+        'О нас',
+    )
+    quote = models.TextField(
+        'Цитата',
+    )
+    vk = models.CharField(
+        'Ссылка на ВКонтакте',
+        max_length=255,
+    )
+    instagram = models.CharField(
+        'Ссылка на Инстаграмм',
+        max_length=255,
+    )
+    telegram = models.CharField(
+        'Ссылка на Телеграм',
+        max_length=255,
+    )
+    whatsapp = models.CharField(
+        'Ссылка на WhatsApp',
+        max_length=255,
+    )
+    phone = PhoneNumberField(
+        'Номер для связи',
+    )
+    adress = models.CharField(
+        'Адрес',
+        max_length=255,
+    )
+
+
+class Service(models.Model):
+    service = models.ForeignKey(
+        'MainData',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    name = models.CharField(
+        'Название услуги',
+        max_length=255,
+    )
+    image = models.ImageField(
+        'Изображение',
+        upload_to='services',
+    )
+
+
+class ServiceExample(models.Model):
+    service_example = models.ForeignKey(
+        'MainData',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    title = models.CharField(
+        'Заголовок',
+        max_length=255,
+    )
+    content = models.TextField(
+        'Описание',
+    )
+    image = models.ImageField(
+        'Изображение',
+        upload_to='examples',
+    )

@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="bloglist item">
+    <div class="post-content">
+        <div class="post-image">
+            <div class="de_modal" data-url="single-blog.html"><img alt="" src="{% static "images/blog/1.jpg" %}" class="lazy grayscale"></div>
+        </div>
+        <div class="post-text">
+            <h4 class="de_modal" data-url="single-blog.html">{{ example.title }}</h4>
+            <p>{{ example.content|truncatechars:100 }}</p>
+        </div>
+    </div>
+</div>
