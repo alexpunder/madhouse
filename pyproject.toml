@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "madhouse"
+version = "0.1.0"
+description = ""
+authors = ["Alexander <alexpunder@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ruff = "^0.7.1"
+django = "^5.1.2"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
