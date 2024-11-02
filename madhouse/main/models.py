@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -19,7 +21,9 @@ class SignUp(models.Model):
     )
 
     class Meta:
-        ordering = ['-id',]
+        ordering = [
+            '-id',
+        ]
         verbose_name = 'Обращения'
         verbose_name_plural = 'Обращения'
 
@@ -62,6 +66,13 @@ class MainData(models.Model):
         max_length=255,
     )
 
+    class Meta:
+        verbose_name = 'Основные данные'
+        verbose_name_plural = 'Основные данные'
+
+    def __str__(self):
+        return self.title
+
 
 class Service(models.Model):
     service = models.ForeignKey(
@@ -74,10 +85,20 @@ class Service(models.Model):
         'Название услуги',
         max_length=255,
     )
+    description = models.TextField(
+        'Описание услуги',
+    )
     image = models.ImageField(
         'Изображение',
         upload_to='services',
     )
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
+
+    def __str__(self):
+        return self.name
 
 
 class ServiceExample(models.Model):
@@ -87,6 +108,10 @@ class ServiceExample(models.Model):
         blank=True,
         null=True,
     )
+    created_at = models.DateField(
+        'Дата оказания услуги',
+        default=date.today,
+    )
     title = models.CharField(
         'Заголовок',
         max_length=255,
@@ -94,7 +119,22 @@ class ServiceExample(models.Model):
     content = models.TextField(
         'Описание',
     )
+    client = models.CharField(
+        'Клиент',
+        max_length=255,
+    )
+    service_type = models.CharField(
+        'Тип услуги',
+        max_length=255,
+    )
     image = models.ImageField(
         'Изображение',
         upload_to='examples',
     )
+
+    class Meta:
+        verbose_name = 'Пример работы'
+        verbose_name_plural = 'Примеры работ'
+
+    def __str__(self):
+        return self.content

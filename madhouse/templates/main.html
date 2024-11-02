@@ -137,33 +137,42 @@
                 </div>
                 <div class="col-lg-8 offset-lg-2 wow fadeInUp">
                     <div class="contact_form_wrapper">
-                        <form name="contactForm" id="contact_form" class="form-border" method="post" action="#">
+                        <form method="post" action="{% url 'main:indexpage' %}" class="form-border">
+
+                            {% csrf_token %}
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="field-set">
-                                        <input type="text" name="Name" id="name" class="form-control" placeholder="Ваше имя" required>
+                                        {{ form.name.errors }}
+                                        <label for="{{ form.name.id_for_label }}"></label>
+                                        {{ form.name }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="field-set">
-                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Ваш номер" required>
+                                        {{ form.phone_number.errors }}
+                                        <label for="{{ form.phone_number.id_for_label }}"></label>
+                                        {{ form.phone_number }}
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center">
                                 <div class="field-set">
-                                    <textarea name="message" id="message" class="form-control" placeholder="Ваше сообщение" required></textarea>
+                                    {{ form.message.errors }}
+                                    <label for="{{ form.message.id_for_label }}"></label>
+                                    {{ form.message }}
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div>
-                                <div id='submit' class="mt10">
-                                    <input type='submit' id='send_message' value='Отправить' class="btn-main">
-                                </div>
-
-                                <div id="success_message" class='success'>
-                                    Your message has been sent successfully. Refresh this page if you want to send more messages.
-                                </div>
-                                <div id="error_message" class='error'>
-                                    Sorry there was an error sending your form.
+                                <div class="col-auto align-self-center form-group">
+                                    <div class="mt10">
+                                        <label class="form-check-label" for="notice">
+                                            <input class="form-check-input" type="checkbox" id="notice" onchange="document.getElementById('submitcheck').disabled = !this.checked;">
+                                            Согласен с обработкой персональных данных
+                                        </label>
+                                    </div>
+                                    <div class="mt10">
+                                        <button id="submitcheck" disabled class="btn-main" type="submit">Отправить</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>

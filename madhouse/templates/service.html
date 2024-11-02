@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="col-md-4 item wow">
-    <div class="de_modal" data-url="single-project.html">
+    <div class="de_modal" data-url="{% url 'main:service_page' service_id=service.id %}">
         <div class="card-image-1 mod-c" data-tilt>
             <div class="d-text">
                 <h3>{{ service.name }}</h3>

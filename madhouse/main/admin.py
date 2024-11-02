@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import SignUp, MainData, Service, ServiceExample
+from .models import MainData, Service, ServiceExample, SignUp
 
 
 @admin.register(MainData)
