@@ -2,7 +2,7 @@ import re
 
 from django.core.exceptions import ValidationError
 
-from madhouse.constants import SPAM_PATTERNS_DATA, RUSSIAN_ALPH_PATTERN
+from madhouse.constants import RUSSIAN_ALPH_PATTERN, SPAM_PATTERNS_DATA
 
 SPAM_PATTERNS = re.compile(SPAM_PATTERNS_DATA, re.IGNORECASE)
 
@@ -17,6 +17,4 @@ def spam_validator(text):
 
 def username_at_russian_alphabet(name):
     if not re.match(RUSSIAN_ALPH_PATTERN, name):
-        raise ValidationError(
-            'Допустимы символы только русского алфавита.'
-        )
+        raise ValidationError('Допустимы символы только русского алфавита.')

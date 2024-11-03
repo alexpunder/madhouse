@@ -1,23 +1,44 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group, User
+from unfold.admin import ModelAdmin
 
 from .models import MainData, Service, ServiceExample, SignUp
 
+admin.site.unregister(Group)
+admin.site.unregister(User)
+
 
 @admin.register(MainData)
-class MainDataAdin(admin.ModelAdmin):
-    pass
+class MainDataAdmin(ModelAdmin):
+    list_display = (
+        'title',
+        'phone',
+    )
 
 
 @admin.register(SignUp)
-class SignUpAdin(admin.ModelAdmin):
-    pass
+class SignUpAdmin(ModelAdmin):
+    list_display = (
+        'id',
+        'created_at',
+        'name',
+        'phone_number',
+    )
 
 
 @admin.register(Service)
-class ServiceAdin(admin.ModelAdmin):
-    pass
+class ServiceAdmin(ModelAdmin):
+    list_display = (
+        'id',
+        'name',
+    )
 
 
 @admin.register(ServiceExample)
-class ServiceExampleAdin(admin.ModelAdmin):
-    pass
+class ServiceExampleAdmin(ModelAdmin):
+    list_display = (
+        'title',
+        'created_at',
+        'client',
+        'service_type',
+    )

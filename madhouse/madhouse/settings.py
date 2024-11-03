@@ -29,7 +29,20 @@ MESSAGE_TAGS = {
 }
 
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': os.getenv('REDIS_HOST'),
+        'OPTIONS': {
+            'CLIENT_CLASS': os.getenv('REDIS_CLIENT'),
+        }
+    }
+}
+
+
 INSTALLED_APPS = [
+    'unfold',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +54,9 @@ INSTALLED_APPS = [
 
     'phonenumber_field',
     'django_recaptcha',
+    'cachalot',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'madhouse.urls'
 

@@ -1,9 +1,9 @@
 from django.contrib import messages
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import SignUpForm
-from .utils import generate_error_messages
 from .models import MainData, Service, ServiceExample
+from .utils import generate_error_messages
 
 
 def index(request):
@@ -28,7 +28,7 @@ def index(request):
                 message=(
                     'Сообщение успешно отправлено! '
                     'В ближайшее время мы с Вами свяжемся.'
-                )
+                ),
             )
             return render(
                 request=request,

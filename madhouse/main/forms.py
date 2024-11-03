@@ -9,15 +9,19 @@ from .validations import spam_validator, username_at_russian_alphabet
 class SignUpForm(forms.ModelForm):
     reCAPTCHA = ReCaptchaField(
         label='',
-        widget=ReCaptchaV2Checkbox(attrs={
-            'data-size': 'normal',
-        })
+        widget=ReCaptchaV2Checkbox(
+            attrs={
+                'data-size': 'normal',
+            }
+        ),
     )
     nickname = forms.CharField(
         label='',
-        widget=forms.TextInput(attrs={
-            'style': 'display:none;',
-        }),
+        widget=forms.TextInput(
+            attrs={
+                'style': 'display:none;',
+            }
+        ),
         required=False,
     )
     phone_number = forms.CharField(

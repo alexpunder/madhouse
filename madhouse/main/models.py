@@ -39,9 +39,6 @@ class MainData(models.Model):
     about_us = models.TextField(
         'О нас',
     )
-    quote = models.TextField(
-        'Цитата',
-    )
     vk = models.CharField(
         'Ссылка на ВКонтакте',
         max_length=255,
