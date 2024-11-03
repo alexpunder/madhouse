@@ -6,29 +6,24 @@
 <div class="no-bottom no-top" id="content">
     <div id="top"></div>
 
-    <!-- page preloader begin -->
     <div id="preloader">
         <div class="preloader1"></div>
     </div>
-    <!-- page preloader close -->
-    
-    <!-- float text begin -->
+
     <div class="float-text">
         <div class="de_social-icons">
-            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+            <a href="#"><i class="fa fa-vk fa-lg"></i></a>
             <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+            <a href="#"><i class="fa fa-telegram fa-lg"></i></a>
+            <a href="#"><i class="fa fa-whatsapp fa-lg"></i></a>
         </div>
         <span>Наши соцсети</span>
     </div>
-    <!-- float text close --> 
 
-    <!-- load external content begin -->
     <div id="de_modal">
         <button class="button-close"></button>
         <div class="d-modal-loader"></div>
     </div>
-     <!-- load external content close -->
 
     <section aria-label="section" class="jarallax no-top no-bottom text-light">
         <img src="{% static "images/background/1.jpg" %}" class="jarallax-img" alt="">
@@ -135,6 +130,17 @@
                     <h2>Написать Нам</h2>
                     <div class="space-border"></div>
                 </div>
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            {% if message.tags == "alert-danger" %}
+                                <div class="alert {{ message.tags }} text-center alert-dismissible fade show" role="alert">
+                                    <strong>{{ message }}</strong>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="col-lg-8 offset-lg-2 wow fadeInUp">
                     <div class="contact_form_wrapper">
                         <form method="post" action="{% url 'main:indexpage' %}" class="form-border">
@@ -144,26 +150,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="field-set">
-                                        {{ form.name.errors }}
                                         <label for="{{ form.name.id_for_label }}"></label>
                                         {{ form.name }}
+                                        {{ form.name.errors }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="field-set">
-                                        {{ form.phone_number.errors }}
                                         <label for="{{ form.phone_number.id_for_label }}"></label>
                                         {{ form.phone_number }}
+                                        {{ form.phone_number.errors }}
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center">
                                 <div class="field-set">
-                                    {{ form.message.errors }}
                                     <label for="{{ form.message.id_for_label }}"></label>
                                     {{ form.message }}
+                                    {{ form.message.errors }}
                                 </div>
                                 <div class="col-auto align-self-center form-group">
+                                    <div class="field-set">
+                                        <label for="{{ form.reCAPTCHA.id_for_label }}"></label>
+                                        {{ form.reCAPTCHA }}
+                                        {{ form.reCAPTCHA.errors }}
+                                    </div>
                                     <div class="mt10">
                                         <label class="form-check-label" for="notice">
                                             <input class="form-check-input" type="checkbox" id="notice" onchange="document.getElementById('submitcheck').disabled = !this.checked;">

@@ -1,5 +1,6 @@
 import os
 
+from django.contrib.messages import constants as messages
 from django.core.management.utils import get_random_secret_key
 from pathlib import Path
 from dotenv import load_dotenv
@@ -19,6 +20,15 @@ INTERNAL_IPS = ['localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS', 'http://127.0.0.1:8000')]
 
 
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,6 +40,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
 
     'phonenumber_field',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -109,3 +120,6 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')

@@ -54,6 +54,20 @@ phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
 [[package]]
+name = "django-recaptcha"
+version = "4.0.0"
+description = "Django recaptcha form field/widget app."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-recaptcha-4.0.0.tar.gz", hash = "sha256:5316438f97700c431d65351470d1255047e3f2cd9af0f2f13592b637dad9213e"},
+    {file = "django_recaptcha-4.0.0-py3-none-any.whl", hash = "sha256:0d912d5c7c009df4e47accd25029133d47a74342dbd2a8edc2877b6bffa971a3"},
+]
+
+[package.dependencies]
+django = "*"
+
+[[package]]
 name = "phonenumbers"
 version = "8.13.48"
 description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
@@ -226,4 +240,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "9f94d79ee94acdad6c5188cda67bcc34d55243652b537f6c85b7b02bec3a90f2"
+content-hash = "ad31d6500aefcb008a094e001de9c23deebbee8e89596b33ad9926c477beecab"
