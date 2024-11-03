@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="blog-read">
-                <img alt="" src="{% static "images/blog/big.jpg" %}" class="img-fullwidth rounded">
+                <img alt="" src="{{ service_page.image.url }}" class="img-fullwidth rounded">
                 <h2>{{ service_page.title }}</h2>
                 <div class="post-text">
                   <p>{{ service_page.description }}</p>
