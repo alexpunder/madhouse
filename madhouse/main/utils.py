@@ -1,4 +1,31 @@
+from telegram import Bot
+from celery import shared_task
+from django.conf import settings
 from django.contrib import messages
+
+
+bot = Bot(token=settings.BOT_TOKEN)
+
+
+@shared_task()
+def send_telegram_message(**kwargs):
+    """
+    Отправка сообщения в группу организации от имени телеграм-бота.
+    """
+    name = kwargs.get('name')
+    phone = kwargs.get('phone_number')
+    text = kwargs.get('message')
+    message = (
+        'Новый запрос от пользователя. \n\n'
+        f'Имя: {name} \n'
+        f'Телефон: {phone} \n'
+        'Текст обращения: \n'
+        f'{text}'
+    )
+    bot.send_message(
+        chat_id=settings.CHANNEL_ID,
+        text=message
+    )
 
 
 def generate_error_messages(request, form):

@@ -22,6 +22,24 @@ services:
     depends_on:
       - db
 
+  redis:
+    image: redis:7.2.4
+    ports:
+      - 6379:6379
+
+  worker:
+    build: ./madhouse/
+    env_file: .env
+    command: poetry run celery -A madhouse worker --loglevel=info
+    depends_on:
+      - db
+      - redis
+    links:
+      - redis
+    volumes:
+      - static:/static
+      - media:/app/media
+
   nginx:
     build:
       context: ./nginx/
@@ -33,8 +51,3 @@ services:
       - media:/app/media
     depends_on:
       - backend
-
-  redis:
-    image: redis:7.2.4
-    ports:
-      - 6379:6379

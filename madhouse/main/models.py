@@ -18,6 +18,8 @@ class SignUp(models.Model):
     )
     message = models.TextField(
         'Сообщение',
+        null=True,
+        blank=True,
     )
 
     class Meta:
