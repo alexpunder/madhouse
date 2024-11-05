@@ -1,8 +1,7 @@
-from telegram import Bot
 from celery import shared_task
 from django.conf import settings
 from django.contrib import messages
-
+from telegram import Bot
 
 bot = Bot(token=settings.BOT_TOKEN)
 
@@ -22,10 +21,7 @@ def send_telegram_message(**kwargs):
         'Текст обращения: \n'
         f'{text}'
     )
-    bot.send_message(
-        chat_id=settings.CHANNEL_ID,
-        text=message
-    )
+    bot.send_message(chat_id=settings.CHANNEL_ID, text=message)
 
 
 def generate_error_messages(request, form):
