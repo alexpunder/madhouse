@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="bloglist item">
+    <div class="post-content">
+        <div class="post-image">
+            <div class="de_modal" data-url="{% url 'main:certificate_page' certificate_id=certificate.id %}"><img alt="" src="{{ certificate.image.url }}" class="lazy grayscale"></div>
+        </div>
+        <div class="post-text">
+            <h4 class="de_modal" data-url="{% url 'main:certificate_page' certificate_id=certificate.id %}">{{ certificate.name }}</h4>
+        </div>
+    </div>
+</div>

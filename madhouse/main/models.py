@@ -73,6 +73,34 @@ class MainData(models.Model):
         return self.title
 
 
+class Certificate(models.Model):
+    certificate = models.ForeignKey(
+        'MainData',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    name = models.CharField(
+        'Название сертификата',
+        max_length=255,
+    )
+    description = models.TextField(
+        'Описание сертификата',
+    )
+    image = models.ImageField(
+        'Изображение',
+        upload_to='certificates',
+        help_text='Размер изображений: 700x700',
+    )
+
+    class Meta:
+        verbose_name = 'Сертификат'
+        verbose_name_plural = 'Сертификаты'
+
+    def __str__(self):
+        return self.name
+
+
 class Service(models.Model):
     service = models.ForeignKey(
         'MainData',

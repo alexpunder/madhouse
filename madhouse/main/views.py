@@ -2,17 +2,19 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import SignUpForm
-from .models import MainData, Service, ServiceExample
+from .models import MainData, Service, ServiceExample, Certificate
 from .utils import generate_error_messages, send_telegram_message
 
 
 def index(request):
     main_data = MainData.objects.first()
+    certificates = main_data.certificate_set.all()
     services = main_data.service_set.all()
     examples = main_data.serviceexample_set.all()
 
     context = {
         'main_data': main_data,
+        'certificates': certificates,
         'services': services,
         'examples': examples,
         'form': SignUpForm(),
@@ -48,6 +50,15 @@ def index(request):
         request=request,
         template_name='main.html',
         context=context,
+    )
+
+
+def certificate_page(request, certificate_id):
+    certificate = get_object_or_404(Certificate, id=certificate_id)
+    return render(
+        request=request,
+        template_name='certificate_page.html',
+        context={'certificate_page': certificate},
     )
 
 

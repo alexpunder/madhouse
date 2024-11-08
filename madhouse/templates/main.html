@@ -67,7 +67,13 @@
                         {{ main_data.about_us }}
                     </p>
                 </div>
-                <div class="spacer-single"></div>
+            </div>
+        </div>
+        <div class="container relative">
+            <div id="carousel-certificate" class="owl-carousel wow fadeInUp">
+                {% for certificate in certificates %}
+                    {% include "certificate.html" %}
+                {% endfor %}
             </div>
         </div>
     </section>
