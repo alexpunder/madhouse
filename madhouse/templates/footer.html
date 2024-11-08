@@ -5,15 +5,15 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="{% url "main:indexpage" %}">
-                    <span class="copy">&copy; MADHOUSE — студия детейлинга, 2020 - 2024</span>
+                    <span class="copy">&copy; {{ main_data.title }}, 2020 - {% now "Y" %}</span>
                 </a>
             </div>
             <div class="col-md-6">
                 <div class="social-icons">
-                    <a href="#"><i class="fa fa-vk fa-lg"></i></a>
-                    <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-                    <a href="#"><i class="fa fa-telegram fa-lg"></i></a>
-                    <a href="#"><i class="fa fa-whatsapp fa-lg"></i></a>
+                    <a href="{{ main_data.vk }}" title="vk" target="_blank"><i class="fa fa-vk fa-lg"></i></a>
+                    <a href="{{ main_data.instagram }}" title="instagram" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
+                    <a href="{{ main_data.telegram }}" title="telegram" target="_blank"><i class="fa fa-telegram fa-lg"></i></a>
+                    <a href="{{ main_data.whatsapp }}" title="whatsapp" target="_blank"><i class="fa fa-whatsapp fa-lg"></i></a>
                 </div>
             </div>
         </div>

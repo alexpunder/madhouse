@@ -90,6 +90,7 @@ class Service(models.Model):
     image = models.ImageField(
         'Изображение',
         upload_to='services',
+        help_text='Размер изображений: 700x700',
     )
 
     class Meta:
@@ -129,6 +130,7 @@ class ServiceExample(models.Model):
     image = models.ImageField(
         'Изображение',
         upload_to='examples',
+        help_text='Размер изображений: 700x467',
     )
 
     class Meta:
@@ -136,4 +138,4 @@ class ServiceExample(models.Model):
         verbose_name_plural = 'Примеры работ'
 
     def __str__(self):
-        return self.content
+        return self.title
