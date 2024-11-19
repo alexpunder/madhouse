@@ -79,6 +79,8 @@ class Certificate(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name='Связь с основными данными',
+        help_text='Обязательно выбирать',
     )
     name = models.CharField(
         'Название сертификата',
@@ -107,6 +109,8 @@ class Service(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name='Связь с основными данными',
+        help_text='Обязательно выбирать',
     )
     name = models.CharField(
         'Название услуги',
@@ -135,6 +139,8 @@ class ServiceExample(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name='Связь с основными данными',
+        help_text='Обязательно выбирать',
     )
     created_at = models.DateField(
         'Дата оказания услуги',

@@ -11,7 +11,7 @@ class SignUpForm(forms.ModelForm):
         label='',
         widget=ReCaptchaV2Checkbox(
             attrs={
-                'data-size': 'normal',
+                'data-size': 'compact',
             }
         ),
     )

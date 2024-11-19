@@ -1230,9 +1230,11 @@ header.header-mobile.header-light #menu-btn {
 
 /* ================================================== */
 
-section {
-    padding: 90px 0 90px 0;
-    position: relative;
+@media (min-width: 769px) {
+    section {
+        padding: 70px 0 70px 0;
+        position: relative;
+    }
 }
 
 .dark-scheme section {
@@ -11689,8 +11691,8 @@ list-style: none;
 }
 
 .v-center {
-    min-height: 100%;
-    min-height: 100vh;
+    min-height: 50%;
+    min-height: 50vh;
     display: flex;
     align-items: center;
 }
