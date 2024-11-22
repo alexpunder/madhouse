@@ -1,0 +1,26 @@
+{% load static %}
+
+<div id="de_modal-content" class="container">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <img src="{{ example_page.image.url }}" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-lg-4 de_project-info">
+            <h3>{{ example_page.title }}</h3>
+            <p>{{ example_page.content }}</p>
+           
+            <div class="de_project-details">
+                <div class="d-field">
+                    <i class="fa fa-user-o"></i>Клиент: <span>{{ example_page.client }}</span>
+                </div>
+                <div class="d-field">
+                    <i class="fa fa-file-text-o"></i>Услуга: <span>{{ example_page.service_type }}</span>
+                </div>
+                <div class="d-field">
+                    <i class="fa fa-calendar-o"></i>Дата: <span>{{ example_page.created_at }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

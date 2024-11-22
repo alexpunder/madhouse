@@ -1,0 +1,14 @@
+{% load static %}
+
+<div id="de_modal-content" class="container">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <img src="{{ certificate_page.image.url }}" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-lg-4 de_project-info">
+            <h3>{{ certificate_page.name }}</h3>
+            <p>{{ certificate_page.description }}</p>
+        </div>
+    </div>
+</div>

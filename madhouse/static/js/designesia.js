@@ -583,6 +583,24 @@
             }
         });
 
+        jQuery("#carousel-certificate").owlCarousel({
+            center: false,
+            items: 5,
+            loop: false,
+            margin: 25,
+            responsive: {
+                1000: {
+                    items: 3
+                },
+                600: {
+                    items: 2
+                },
+                0: {
+                    items: 1
+                }
+            }
+        });
+
         jQuery("#carousel-blog").owlCarousel({
             center: false,
             items: 5,

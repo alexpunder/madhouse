@@ -26,6 +26,7 @@ exclude = [
     "site-packages",
     "venv",
     "madhouse/madhouse/settings.py",
+    "madhouse/madhouse/constants.py",
 ]
 
 line-length = 79

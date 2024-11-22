@@ -7,25 +7,22 @@
                 <div class="de-flex sm-pt10">
                     <div class="de-flex-col">
                         <div class="de-flex-col">
-                            <!-- logo begin -->
                             <div id="logo">
-                                <a href="{% url "main:indexpage" %}">
-                                    <img alt="" class="logo" src="{% static "images/dark-logo.svg" %}" style="width: 256px; height: 146px;" />
-                                    <img alt="" class="logo-2" src="{% static "images/dark-logo.svg" %}" style="width: 138px; height: 76px;" />
+                                <a href="{% url 'main:indexpage' %}">
+                                    <img alt="" class="logo" src="{% static "images/dark-logo.svg" %}" width="200" height="80" />
+                                    <img alt="" class="logo-2" src="{% static "images/dark-logo.svg" %}" width="200" height="80" />
                                 </a>
                             </div>
-                            <!-- logo close -->
                         </div>
                     </div>
                     <div class="de-flex-col header-col-right">
                         <ul id="mainmenu">
                             <li><a class="active" href="#top">Главная<span></span></a></li>
                             <li><a href="#section-about">О нас<span></span></a></li>
-                            {% comment %} <li><a href="#section-services">What I Do<span></span></a></li> {% endcomment %}
                             <li><a href="#section-services">Услуги<span></span></a></li>
-                            {% comment %} <li><a href="#section-resume">My Resume<span></span></a></li> {% endcomment %}
                             <li><a href="#section-examples">Примеры работ<span></span></a></li>
                             <li><a href="#section-contact">Написать нам<span></span></a></li>
+                            <li><a href="#section-onmap">На карте<span></span></a></li>
                         </ul>
                         <div class="menu_side_area">
                             <span id="menu-btn"></span>
@@ -34,5 +31,16 @@
                 </div>
             </div>
         </div>
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    {% if message.tags == "alert-success" %}
+                        <div class="alert {{ message.tags }} text-center alert-dismissible fade show" role="alert">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </header>

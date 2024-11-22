@@ -1,0 +1,49 @@
+volumes:
+  static:
+  media:
+  pg_data:
+
+services:
+  db:
+    image: postgres:13.10
+    restart: always
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    image: alexpunder/madhouse_backend
+    env_file: .env
+    volumes:
+      - static:/static
+      - media:/app/media
+    depends_on:
+      - db
+
+  redis:
+    image: redis:7.2.4
+    ports:
+      - 6379:6379
+
+  worker:
+    image: alexpunder/madhouse_backend
+    env_file: .env
+    command: poetry run celery -A madhouse worker --loglevel=info
+    depends_on:
+      - db
+      - redis
+    links:
+      - redis
+    volumes:
+      - static:/static
+      - media:/app/media
+
+  nginx:
+    image: alexpunder/madhouse_nginx
+    ports:
+      - 8000:80
+    volumes:
+      - static:/static
+      - media:/app/media
+    depends_on:
+      - backend

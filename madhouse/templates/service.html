@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="col-md-4 item wow">
+    <div class="de_modal" data-url="{% url 'main:service_page' service_id=service.id %}">
+        <div class="card-image-1 mod-c" data-tilt>
+            <div class="d-text">
+                <h3>{{ service.name }}</h3>
+            </div>
+            <img src="{{ service.image.url }}" class="img-fluid" alt="">
+        </div>
+    </div>
+</div>
