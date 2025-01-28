@@ -256,6 +256,23 @@ files = [
 Django = ">=3.2,<5.2"
 
 [[package]]
+name = "django-js-asset"
+version = "3.0.1"
+description = "script tag with additional attributes for django.forms.Media"
+optional = false
+python-versions = ">=3.10"
+files = [
+    {file = "django_js_asset-3.0.1-py3-none-any.whl", hash = "sha256:0b7ee73c45ca65cccbcc2f60cbe8fbc87ff133b543c282cb64fe6c13d7ca4c10"},
+    {file = "django_js_asset-3.0.1.tar.gz", hash = "sha256:5ad51814edf38d28e6280e6ecad50ee40551363a2f6a6bfe93577dee793dc378"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+
+[package.extras]
+tests = ["coverage"]
+
+[[package]]
 name = "django-phonenumber-field"
 version = "8.0.0"
 description = "An international phone number field for django models."
@@ -273,6 +290,25 @@ phonenumbers = {version = ">=7.0.2", optional = true, markers = "extra == \"phon
 [package.extras]
 phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
+
+[[package]]
+name = "django-prose-editor"
+version = "0.10.3"
+description = "Prose editor for the Django admin based on ProseMirror"
+optional = false
+python-versions = ">=3.10"
+files = [
+    {file = "django_prose_editor-0.10.3-py3-none-any.whl", hash = "sha256:776f0eb86791e72278f55abc98e426620f9bff5554a46c513069f8c089d80960"},
+    {file = "django_prose_editor-0.10.3.tar.gz", hash = "sha256:4ecef8cbd0286065ec54e18e15419495c80404a408860cad2189180724f93d49"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+django-js-asset = ">=3.0.1"
+
+[package.extras]
+sanitize = ["nh3"]
+tests = ["coverage", "nh3"]
 
 [[package]]
 name = "django-recaptcha"
@@ -822,4 +858,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "460b3734029d104fa429c5dac7bcad7b6c0776621510f97b45dd45377864fa62"
+content-hash = "82bda5ca868e7f6d8b185f16c0474fa5b3b1c191f343e2779fe4a59f3364efee"

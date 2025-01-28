@@ -16,6 +16,6 @@ COPY pyproject.toml .
 
 RUN poetry install --no-root
 
-COPY . /app
+COPY /madhouse /app
 
 CMD ["/root/.local/bin/poetry", "run", "gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "madhouse.wsgi"]

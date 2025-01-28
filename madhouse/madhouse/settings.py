@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'django_recaptcha',
     'cachalot',
+    'django_prose_editor',
 ]
 
 

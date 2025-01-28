@@ -1,6 +1,7 @@
 from datetime import date
 
 from django.db import models
+from django_prose_editor.fields import ProseEditorField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -38,7 +39,7 @@ class MainData(models.Model):
         'Нзвание организации',
         max_length=255,
     )
-    about_us = models.TextField(
+    about_us = ProseEditorField(
         'О нас',
     )
     vk = models.CharField(
@@ -86,7 +87,7 @@ class Certificate(models.Model):
         'Название сертификата',
         max_length=255,
     )
-    description = models.TextField(
+    description = ProseEditorField(
         'Описание сертификата',
     )
     image = models.ImageField(
@@ -116,7 +117,7 @@ class Service(models.Model):
         'Название услуги',
         max_length=255,
     )
-    description = models.TextField(
+    description = ProseEditorField(
         'Описание услуги',
     )
     image = models.ImageField(
@@ -150,7 +151,7 @@ class ServiceExample(models.Model):
         'Заголовок',
         max_length=255,
     )
-    content = models.TextField(
+    content = ProseEditorField(
         'Описание',
     )
     client = models.CharField(
