@@ -7,7 +7,7 @@
         </div>
         <div class="post-text">
             <h4 class="de_modal" data-url="{% url 'main:example_page' example_id=example.id %}">{{ example.title }}</h4>
-            <p>{{ example.content|truncatechars:100 }}</p>
+            <p>{{ example.content|truncatechars:100|safe }}</p>
         </div>
     </div>
 </div>

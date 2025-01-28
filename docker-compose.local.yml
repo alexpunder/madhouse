@@ -28,7 +28,7 @@ services:
       - 6379:6379
 
   worker:
-    build: .
+    build: ./madhouse/
     env_file: .env
     command: poetry run celery -A madhouse worker --loglevel=info
     depends_on:

@@ -7,7 +7,7 @@
                 <img alt="" src="{{ service_page.image.url }}" class="img-fullwidth rounded">
                 <h2>{{ service_page.title }}</h2>
                 <div class="post-text">
-                  <p>{{ service_page.description }}</p>
+                  <p>{{ service_page.description|safe }}</p>
                 </div>
             </div>
         </div>
