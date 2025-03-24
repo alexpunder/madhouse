@@ -25,19 +25,6 @@ services:
     ports:
       - 6379:6379
 
-  worker:
-    image: alexpunder/madhouse_backend
-    env_file: .env
-    command: poetry run celery -A madhouse worker --loglevel=info
-    depends_on:
-      - db
-      - redis
-    links:
-      - redis
-    volumes:
-      - static:/static
-      - media:/app/media
-
   nginx:
     image: alexpunder/madhouse_nginx
     ports:

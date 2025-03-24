@@ -1,8 +1,9 @@
+from asgiref.sync import async_to_sync
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import SignUpForm
-from .models import MainData, Service, ServiceExample, Certificate
+from .models import Certificate, MainData, Service, ServiceExample
 from .utils import generate_error_messages, send_telegram_message
 
 
@@ -25,7 +26,7 @@ def index(request):
         if form.is_valid():
             form.save()
 
-            send_telegram_message.delay(**form.cleaned_data)
+            async_to_sync(send_telegram_message)(**form.cleaned_data)
 
             messages.success(
                 request=request,
