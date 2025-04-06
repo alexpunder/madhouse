@@ -20,11 +20,6 @@ services:
     depends_on:
       - db
 
-  redis:
-    image: redis:7.2.4
-    ports:
-      - 6379:6379
-
   nginx:
     image: alexpunder/madhouse_nginx
     ports:

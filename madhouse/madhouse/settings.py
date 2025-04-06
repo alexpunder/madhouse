@@ -34,17 +34,6 @@ MESSAGE_TAGS = {
 }
 
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': os.getenv('REDIS_HOST'),
-        'OPTIONS': {
-            'CLIENT_CLASS': os.getenv('REDIS_CLIENT'),
-        }
-    }
-}
-
-
 INSTALLED_APPS = [
     'unfold',
 
@@ -59,7 +48,6 @@ INSTALLED_APPS = [
 
     'phonenumber_field',
     'django_recaptcha',
-    'cachalot',
     'django_prose_editor',
 ]
 
